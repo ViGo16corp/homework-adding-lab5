@@ -47,7 +47,7 @@ if __name__ == "__main__":
     backlog.sort_by_severity()
     print("Backlog Sorted by Severity:")
     print(backlog)
-
+    
     assignee = "Developer A"
     resolved_bugs = backlog.get_resolved_bugs_for_assignee(assignee)
     print(f"Resolved Bugs for {assignee}:")
