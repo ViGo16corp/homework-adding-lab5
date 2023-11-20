@@ -35,6 +35,7 @@ if __name__ == "__main__":
     bug2 = Bug("UI glitch", "Minor", "2023-10-30", "OPEN", "Developer B")
     bug3 = Bug("Database connection issue", "Major", "2023-11-05", "RESOLVED", "Developer A")
 
+
     backlog = Backlog()
     backlog.add_bug(bug1)
     backlog.add_bug(bug2)
