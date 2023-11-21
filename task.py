@@ -6,6 +6,7 @@ class Bug:
         self.status = status
         self.assignee = assignee
 
+    
     def __str__(self):
         return f"Description: {self.description}\nSeverity: {self.severity}\nDeadline: {self.deadline}\nStatus: {self.status}\nAssignee: {self.assignee}\n"
 
@@ -47,9 +48,11 @@ if __name__ == "__main__":
     backlog.sort_by_severity()
     print("Backlog Sorted by Severity:")
     print(backlog)
-
+    
     assignee = "Developer A"
     resolved_bugs = backlog.get_resolved_bugs_for_assignee(assignee)
     print(f"Resolved Bugs for {assignee}:")
     for bug in resolved_bugs:
         print(bug)
+
+
