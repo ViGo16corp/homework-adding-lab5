@@ -46,23 +46,25 @@ class Bug:
 
 class Backlog:
     def __init__(self):
-        self.bugs = []
+        self._bugs = []
 
     def add_bug(self, bug):
-        self.bugs.append(bug)
+        self._bugs.append(bug)
 
     def get_resolved_bugs_for_assignee(self, assignee):
-        resolved_bugs = [bug for bug in self.bugs if bug.status == "RESOLVED" and bug.assignee == assignee]
+        resolved_bugs = [bug for bug in self._bugs if bug.get_status() == "RESOLVED" and bug.get_assignee() == assignee]
         return resolved_bugs
 
     def sort_by_severity(self):
-        self.bugs.sort(key=lambda bug: bug.severity)
+        self._bugs.sort(key=lambda bug: bug.get_severity())
 
-     def __str__(self):
-        return "\n".join(str(bug) for bug in self._bugs)
+    def __str__(self):
+        backlog_str = ""
+        for bug in self._bugs:
+            backlog_str += str(bug) + "\n"
+        return backlog_str
 
 
-# Демонстрація роботи класів
 if __name__ == "__main__":
     bug1 = Bug("Crash on startup", "Critical", "2023-11-01", "RESOLVED", "Developer A")
     bug2 = Bug("UI glitch", "Minor", "2023-10-30", "OPEN", "Developer B")
