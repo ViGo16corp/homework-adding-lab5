@@ -6,6 +6,39 @@ class Bug:
         self.status = status
         self.assignee = assignee
 
+    def get_description(self):
+        return self._description
+
+    def set_description(self, description):
+        self._description = description
+
+    def get_severity(self):
+        return self._severity
+
+    def set_severity(self, severity):
+        self._severity = severity
+
+    def get_deadline(self):
+        return self._deadline
+
+    def set_deadline(self, deadline):
+        self._deadline = deadline
+
+    def get_status(self):
+        return self._status
+
+    def set_status(self, status):
+        if status in self.STATUS_LIST:
+            self._status = status
+        else:
+            print(f"Invalid status: {status}")
+
+    def get_assignee(self):
+        return self._assignee
+
+    def set_assignee(self, assignee):
+        self._assignee = assignee
+
     def __str__(self):
         return f"Description: {self.description}\nSeverity: {self.severity}\nDeadline: {self.deadline}\nStatus: {self.status}\nAssignee: {self.assignee}\n"
 
@@ -23,11 +56,9 @@ class Backlog:
     def sort_by_severity(self):
         self.bugs.sort(key=lambda bug: bug.severity)
 
-    def __str__(self):
-        backlog_str = ""
-        for bug in self.bugs:
-            backlog_str += str(bug) + "\n"
-        return backlog_str
+     def __str__(self):
+        return "\n".join(str(bug) for bug in self._bugs)
+
 
 # Демонстрація роботи класів
 if __name__ == "__main__":
