@@ -1,10 +1,12 @@
 class Bug:
+    STATUS_LIST = ["OPEN", "IN_PROGRESS", "RESOLVED", "CLOSED"]
+    
     def __init__(self, description, severity, deadline, status, assignee):
-        self.description = description
-        self.severity = severity
-        self.deadline = deadline
-        self.status = status
-        self.assignee = assignee
+        self._description = description
+        self._severity = severity
+        self._deadline = deadline
+        self._status = status
+        self._assignee = assignee
 
     def get_description(self):
         return self._description
